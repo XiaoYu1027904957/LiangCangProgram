@@ -9,7 +9,7 @@ import okhttp3.Call;
 
 /**
  * Created by yuxiaobai on 2017/1/7.
- * 封装okhttputils
+ * 封装okhttputils1
  */
 
 public class GetNetData {
