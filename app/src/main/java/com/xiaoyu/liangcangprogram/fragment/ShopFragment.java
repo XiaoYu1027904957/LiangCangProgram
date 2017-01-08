@@ -41,7 +41,7 @@ public class ShopFragment extends BaseFragment {
     }
 
     /**
-     * 配置adapter
+     * 配置adapter1
      */
     private void initViewPager() {
         idViewpager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
