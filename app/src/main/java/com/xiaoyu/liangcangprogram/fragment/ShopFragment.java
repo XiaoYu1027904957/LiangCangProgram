@@ -23,7 +23,7 @@ public class ShopFragment extends BaseFragment {
     @InjectView(R.id.id_viewpager)
     ViewPager idViewpager;
     private LayoutInflater inflater;
-    private int mTabCount = 5;
+    private String mTabTitle[] = {"分类", "品牌", "首页", "专题", "礼物"};
 
     @Override
     protected View initView() {
@@ -37,6 +37,7 @@ public class ShopFragment extends BaseFragment {
     public void initData() {
         super.initData();
         initViewPager();
+        idViewpager.setCurrentItem(2, true);
     }
 
     /**
@@ -51,12 +52,12 @@ public class ShopFragment extends BaseFragment {
 
             @Override
             public int getCount() {
-                return mTabCount;
+                return mTabTitle.length;
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
-                return "Tab:" + position;
+                return mTabTitle[position];
             }
         });
 
