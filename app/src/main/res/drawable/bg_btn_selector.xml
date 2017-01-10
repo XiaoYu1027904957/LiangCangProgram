@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ease_chat_press_speak_btn_normal" android:state_checked="false"></item>
+    <item android:color="@drawable/ease_chat_press_speak_btn_pressed" android:state_checked="true"></item>
+</shape>

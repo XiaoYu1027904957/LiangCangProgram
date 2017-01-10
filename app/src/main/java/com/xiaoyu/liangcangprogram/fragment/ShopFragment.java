@@ -1,13 +1,12 @@
 package com.xiaoyu.liangcangprogram.fragment;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.xiaoyu.liangcangprogram.R;
+import com.xiaoyu.liangcangprogram.shopping.adapter.ShoppingViewPagerAdapter;
 import com.xiaoyu.liangcangprogram.base.BaseFragment;
 
 import butterknife.ButterKnife;
@@ -23,7 +22,9 @@ public class ShopFragment extends BaseFragment {
     @InjectView(R.id.id_viewpager)
     ViewPager idViewpager;
     private LayoutInflater inflater;
-    private String mTabTitle[] = {"分类", "品牌", "首页", "专题", "礼物"};
+
+
+    private ShoppingViewPagerAdapter adapter;
 
     @Override
     protected View initView() {
@@ -38,31 +39,16 @@ public class ShopFragment extends BaseFragment {
         super.initData();
         initViewPager();
         idViewpager.setCurrentItem(2, true);
+
     }
 
     /**
      * 配置adapter1
      */
     private void initViewPager() {
-        idViewpager.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                return new SimpleFragment();
-            }
-
-            @Override
-            public int getCount() {
-                return mTabTitle.length;
-            }
-
-            @Override
-            public CharSequence getPageTitle(int position) {
-                return mTabTitle[position];
-            }
-        });
-
+        adapter = new ShoppingViewPagerAdapter(getFragmentManager());
+        idViewpager.setAdapter(adapter);
         idTablayout.setupWithViewPager(idViewpager);
-
     }
 
 }

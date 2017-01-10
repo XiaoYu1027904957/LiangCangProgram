@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pin_pai_detial_show"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.xiaoyu.liangcangprogram.shopping.activity.PinPaiDetialShowActivity">
+
+    <include layout="@layout/title_bar_detials"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_topic_all"
+        android:orientation="vertical">
+
+        <ImageView
+android:layout_marginTop="30dp"
+            android:id="@+id/pinpai_icon"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center" />
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/pinpai_name"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+
+                android:id="@+id/pinpai_story"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="品牌故事"
+                android:background="#55000000"
+                android:textColor="@drawable/textcolor_selector" />
+
+            <RadioButton
+                android:background="#55000000"
+                android:id="@+id/pinpai_produce"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="品牌产品"
+                android:textColor="@drawable/textcolor_selector" />
+        </RadioGroup>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/show_switch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

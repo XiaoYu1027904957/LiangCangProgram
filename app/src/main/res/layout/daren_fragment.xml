@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -36,4 +37,8 @@
             android:drawableRight="@drawable/ic_cart_gray" />
 
     </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/daren_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
