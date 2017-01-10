@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.xiaoyu.liangcangprogram.R;
-import com.xiaoyu.liangcangprogram.daren.bean.DaRenBean;
+import com.xiaoyu.liangcangprogram.daren.bean.FansBean;
 
 import java.util.List;
 
@@ -21,13 +21,13 @@ import butterknife.InjectView;
  * Created by yuxiaobai on 2017/1/9.
  */
 
-public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class DaRenFansAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context mContext;
-    private final List<DaRenBean.DataBean.ItemsBean> datas;
-    LayoutInflater inflater;
+    private final List<FansBean.DataBean.ItemsBean.UsersBean> datas;
+    private LayoutInflater inflater;
 
 
-    public DaRenAdapter(Context mContext, List<DaRenBean.DataBean.ItemsBean> datas) {
+    public DaRenFansAdapter(Context mContext, List<FansBean.DataBean.ItemsBean.UsersBean> datas) {
         this.mContext = mContext;
         this.datas = datas;
         inflater = LayoutInflater.from(mContext);
@@ -35,7 +35,7 @@ public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.daren_recycler_item, parent, false);
+        View view = inflater.inflate(R.layout.daren_recycler_fans_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -56,8 +56,6 @@ public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ImageView darenImageShow;
         @InjectView(R.id.name)
         TextView name;
-        @InjectView(R.id.introduce)
-        TextView introduce;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -72,10 +70,10 @@ public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             });
         }
 
-        public void setData(DaRenBean.DataBean.ItemsBean itemsBean) {
-            Glide.with(mContext).load(itemsBean.getUser_images().getOrig()).into(darenImageShow);
-            name.setText(itemsBean.getUsername());
-            introduce.setText(itemsBean.getDuty());
+        public void setData(FansBean.DataBean.ItemsBean.UsersBean usersBean) {
+            Glide.with(mContext).load(usersBean.getUser_image().getOrig()).into(darenImageShow);
+            name.setText(usersBean.getUser_name());
+
         }
     }
 

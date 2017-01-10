@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_da_ren_show_detials"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.xiaoyu.liangcangprogram.daren.DaRenShowDetialsActivity">
+
+    <include layout="@layout/title_bar_detials"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#000000">
+
+        <ImageView
+            android:id="@+id/daren_detial_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/daren_detial_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/daren_detial_icon"
+            android:text="山本燿司"
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/daren_detial_introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/daren_detial_icon"
+            android:text="日本时装设计师"
+            android:textColor="#ffffff"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/daren_guanzhu"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="110dp"
+            android:gravity="center"
+            android:text="关注"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/daren_sixin"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:background="#11000000"
+            android:gravity="center"
+            android:text="私信"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/like"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rg_daren_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="喜欢" />
+
+        <RadioButton
+            android:id="@+id/tuijain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rg_daren_selector"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="推荐" />
+
+        <RadioButton
+            android:id="@+id/guanzhu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rg_daren_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="关注" />
+
+        <RadioButton
+            android:id="@+id/fensi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rg_daren_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="粉丝" />
+    </RadioGroup>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/daren_detials_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000" />
+</LinearLayout>

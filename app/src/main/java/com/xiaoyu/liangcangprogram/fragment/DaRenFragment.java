@@ -1,5 +1,6 @@
 package com.xiaoyu.liangcangprogram.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.xiaoyu.liangcangprogram.ConstantUtils.NetUrl;
 import com.xiaoyu.liangcangprogram.R;
 import com.xiaoyu.liangcangprogram.base.BaseFragment;
+import com.xiaoyu.liangcangprogram.daren.DaRenShowDetialsActivity;
 import com.xiaoyu.liangcangprogram.daren.adapter.DaRenAdapter;
 import com.xiaoyu.liangcangprogram.daren.bean.DaRenBean;
 import com.xiaoyu.liangcangprogram.okHttpUtils.GetNetData;
@@ -69,11 +71,20 @@ public class DaRenFragment extends BaseFragment {
         DaRenBean daRenBean = porcessData(json);
         datas = daRenBean.getData().getItems();
         if (json != null) {
-          adapter = new DaRenAdapter(mContext,datas);
+            adapter = new DaRenAdapter(mContext, datas);
             darenRecyclerview.setAdapter(adapter);
-            GridLayoutManager manager = new GridLayoutManager(mContext,3);
+            GridLayoutManager manager = new GridLayoutManager(mContext, 3);
             darenRecyclerview.setLayoutManager(manager);
         }
+        adapter.setOnItemClickListener(new DaRenAdapter.OnItemClickListener() {
+            @Override
+            public void getPosition(int position) {
+                String uid = datas.get(position).getUid();
+                Intent intent = new Intent(mContext, DaRenShowDetialsActivity.class);
+                intent.putExtra("uid", uid);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     private DaRenBean porcessData(String json) {

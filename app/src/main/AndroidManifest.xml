@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".shopping.activity.PinPaiDetialShowActivity" />
-        <activity android:name=".shopping.activity.WebShowInfoActivity"></activity>
+        <activity android:name=".shopping.activity.WebShowInfoActivity" />
+        <activity android:name=".daren.DaRenShowDetialsActivity" />
+        <activity android:name=".daren.activity.ShowGoodsInfoActivity"></activity>
     </application>
 
 </manifest>

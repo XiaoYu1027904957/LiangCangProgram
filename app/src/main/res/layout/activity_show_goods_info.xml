@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_show_goods_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dd000000"
+    android:orientation="vertical"
+    tools:context="com.xiaoyu.liangcangprogram.daren.activity.ShowGoodsInfoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#000000"
+        android:drawableLeft="@drawable/ease_back"
+        android:drawableRight="@drawable/forward"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:text="良品"
+        android:textColor="#ffffff" />
+
+    <com.youth.banner.Banner
+        app:image_scale_type="fit_xy"
+        android:id="@+id/Goods_pic"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="5dp" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:singleLine="true"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:id="@+id/GoodsInfo_name"
+            android:layout_width="300dp"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="《堕落论》坂口安吾" />
+
+        <TextView
+            android:textSize="18sp"
+            android:textColor="#4488ff"
+            android:id="@+id/goods_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/GoodsInfo_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="￥ 52.00" />
+
+        <ImageView
+            android:id="@+id/aixin"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_follow_liangcang" />
+
+        <TextView
+            android:textColor="#ffffff"
+            android:id="@+id/like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/aixin"
+            android:layout_marginRight="15dp"
+            android:text="888" />
+    </RelativeLayout>
+
+    <Button
+        android:textColor="#ffffff"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:background="#88000000"
+        android:text="LINE"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:id="@+id/user_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/ic_favor" />
+
+        <TextView
+            android:textColor="#ffffff"
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="我是名字 推荐" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#33000000"/>
+
+    <LinearLayout
+        android:id="@+id/pinglun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+</LinearLayout>

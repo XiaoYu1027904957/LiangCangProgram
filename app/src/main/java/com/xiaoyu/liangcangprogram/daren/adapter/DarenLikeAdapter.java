@@ -6,11 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.xiaoyu.liangcangprogram.R;
-import com.xiaoyu.liangcangprogram.daren.bean.DaRenBean;
+import com.xiaoyu.liangcangprogram.daren.bean.LikesBean;
 
 import java.util.List;
 
@@ -21,21 +20,23 @@ import butterknife.InjectView;
  * Created by yuxiaobai on 2017/1/9.
  */
 
-public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class DarenLikeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context mContext;
-    private final List<DaRenBean.DataBean.ItemsBean> datas;
-    LayoutInflater inflater;
+    private final List<LikesBean.DataBean.ItemsBean.GoodsBean> datas;
 
 
-    public DaRenAdapter(Context mContext, List<DaRenBean.DataBean.ItemsBean> datas) {
+    private LayoutInflater inflater;
+
+    public DarenLikeAdapter(Context mContext, List<LikesBean.DataBean.ItemsBean.GoodsBean> datas) {
         this.mContext = mContext;
         this.datas = datas;
         inflater = LayoutInflater.from(mContext);
+
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.daren_recycler_item, parent, false);
+        View view = inflater.inflate(R.layout.share_image_show, parent, false);
         return new ViewHolder(view);
     }
 
@@ -43,7 +44,6 @@ public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.setData(datas.get(position));
-
     }
 
     @Override
@@ -52,12 +52,8 @@ public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @InjectView(R.id.daren_image_show)
-        ImageView darenImageShow;
-        @InjectView(R.id.name)
-        TextView name;
-        @InjectView(R.id.introduce)
-        TextView introduce;
+        @InjectView(R.id.share_image)
+        ImageView shareImage;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -72,10 +68,9 @@ public class DaRenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             });
         }
 
-        public void setData(DaRenBean.DataBean.ItemsBean itemsBean) {
-            Glide.with(mContext).load(itemsBean.getUser_images().getOrig()).into(darenImageShow);
-            name.setText(itemsBean.getUsername());
-            introduce.setText(itemsBean.getDuty());
+
+        public void setData(LikesBean.DataBean.ItemsBean.GoodsBean goodsBean) {
+            Glide.with(mContext).load(goodsBean.getGoods_image()).into(shareImage);
         }
     }
 
