@@ -13,6 +13,7 @@ import com.xiaoyu.liangcangprogram.fragment.MagazineFragment;
 import com.xiaoyu.liangcangprogram.fragment.PersonalFragment;
 import com.xiaoyu.liangcangprogram.fragment.ShareFragment;
 import com.xiaoyu.liangcangprogram.fragment.ShopFragment;
+import com.xiaoyu.liangcangprogram.shopping.detials.ShowDetialsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private Fragment temfragment;
     private int position;
+    private Fragment currentfragment;
+    int currentfragmentposition;
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         initfragment();
         setOnCheckedListener();
+//        getCurrentFragment();
     }
+
 
     /**
      * 对Radio设置监听
@@ -77,28 +83,30 @@ public class MainActivity extends AppCompatActivity {
                         position = 4;
                         break;
                 }
-
 //                得到当前需要显示的fragment
-                Fragment currentfragment = getFragmet(position);
+                currentfragment = getFragmet(position);
                 SwitchFragment(currentfragment);
             }
         });
         mainRg.check(R.id.main_shopping);
     }
 
-    private void SwitchFragment(Fragment currentfragment) {
+    public void SwitchFragment(Fragment currentfragment) {
         if (temfragment != currentfragment) {
             if (currentfragment != null) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction = getSupportFragmentManager().beginTransaction();
                 if (!currentfragment.isAdded()) {
                     if (temfragment != null) {
                         transaction.hide(temfragment);
                     }
+                   transaction.setCustomAnimations(R.anim.fragment_right_in, R.anim.fragment_left_out);
                     transaction.add(R.id.main_framelayout, currentfragment);
                 } else {
                     if (temfragment != null) {
                         transaction.hide(temfragment);
                     }
+
+                    transaction.setCustomAnimations(R.anim.fragment_right_in, R.anim.fragment_left_out);
                     transaction.show(currentfragment);
                 }
                 transaction.commit();
@@ -113,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
      * @param position
      * @return
      */
-    private Fragment getFragmet(int position) {
+    public Fragment getFragmet(int position) {
         if (fragments.size() > 0 && fragments != null) {
             return fragments.get(position);
         }
@@ -130,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new DaRenFragment());
         fragments.add(new ShareFragment());
         fragments.add(new PersonalFragment());
+        fragments.add(new ShowDetialsFragment());
 //         设置默认显示
         defultFragent(fragments.get(0));
     }
@@ -145,4 +154,16 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
         temfragment = fragment;
     }
+
+    public int getCurrentFragment() {
+        for (int i = 0; i < fragments.size(); i++) {
+            if (currentfragment == fragments.get(i)) {
+                currentfragmentposition = i;
+                return currentfragmentposition;
+            }
+        }
+        return 0;
+    }
+
+
 }

@@ -23,9 +23,9 @@ import butterknife.InjectView;
  */
 
 public class GoodsIntroduceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private  Context mContext;
-    private  List<NewDetilasBean.DataBean.ItemsBean> datas;
-    private  List<PinPaiDetialBean.DataBean.ItemsBean> list;
+    private Context mContext;
+    private List<NewDetilasBean.DataBean.ItemsBean> datas;
+    private List<PinPaiDetialBean.DataBean.ItemsBean> list;
     private LayoutInflater inflater;
 
     public GoodsIntroduceAdapter(Context mContext, List<NewDetilasBean.DataBean.ItemsBean> datas) {
@@ -68,6 +68,14 @@ public class GoodsIntroduceAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.getPosition(getAdapterPosition());
+                    }
+                }
+            });
         }
 
 
@@ -80,4 +88,15 @@ public class GoodsIntroduceAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         }
     }
+
+    public interface OnItemClickListener {
+        void getPosition(int position);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/chick"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/icon_shopcart"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/chick"
+            android:background="@drawable/bg_self_fragment" />
+
+        <TextView
+            android:id="@+id/name_shopcart"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/icon_shopcart"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="我是名称" />
+
+        <TextView
+            android:id="@+id/ntroduce_shopcart"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_shopcart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/icon_shopcart"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="数量：一幅：" />
+
+        <TextView
+            android:id="@+id/price_shopcart"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ntroduce_shopcart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/icon_shopcart"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="￥ ：888" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="x1" />
+    </RelativeLayout>
+
+</LinearLayout>

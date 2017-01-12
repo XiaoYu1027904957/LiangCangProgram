@@ -14,6 +14,7 @@ import com.xiaoyu.liangcangprogram.R;
 import com.xiaoyu.liangcangprogram.shopping.activity.WebShowInfoActivity;
 import com.xiaoyu.liangcangprogram.shopping.bean.ShouYeBean;
 import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerClickListener;
 import com.youth.banner.loader.ImageLoader;
 import com.youth.banner.transformer.AccordionTransformer;
@@ -151,8 +152,9 @@ public class ShopshouYeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             }).start();
 //             设置样式
+            shopBannerItem.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
             shopBannerItem.setBannerAnimation(AccordionTransformer.class);
-
+            shopBannerItem.setDelayTime(1000);
             shopBannerItem.setOnBannerClickListener(new OnBannerClickListener() {
                 @Override
                 public void OnBannerClick(int position) {
@@ -205,7 +207,7 @@ public class ShopshouYeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 public void onClick(View v) {
                     if (!listBeanX.getTwo().getTopic_url().trim().equals("")) {
                         String topic_url = listBeanX.getTwo().getTopic_url();
-                        Log.e("TAG", "=========="+listBeanX.getTwo().getTopic_url());
+                        Log.e("TAG", "==========" + listBeanX.getTwo().getTopic_url());
                         Intent intent = new Intent(mContext, WebShowInfoActivity.class);
                         intent.putExtra("weburl", topic_url);
                         mContext.startActivity(intent);
@@ -295,7 +297,7 @@ public class ShopshouYeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 public void onClick(View v) {
                     if (!listBeanX.getTwo().getTopic_url().trim().equals("")) {
                         String topic_url = listBeanX.getTwo().getTopic_url();
-                        Log.e("TAG", "=========="+listBeanX.getTwo().getTopic_url());
+                        Log.e("TAG", "==========" + listBeanX.getTwo().getTopic_url());
                         Intent intent = new Intent(mContext, WebShowInfoActivity.class);
                         intent.putExtra("weburl", topic_url);
                         mContext.startActivity(intent);

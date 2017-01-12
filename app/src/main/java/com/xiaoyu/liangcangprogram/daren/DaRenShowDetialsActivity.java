@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +15,7 @@ import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.xiaoyu.liangcangprogram.ConstantUtils.NetUrl;
 import com.xiaoyu.liangcangprogram.R;
+import com.xiaoyu.liangcangprogram.daren.activity.DaRenShowDetialsOtherActivity;
 import com.xiaoyu.liangcangprogram.daren.activity.ShowGoodsInfoActivity;
 import com.xiaoyu.liangcangprogram.daren.adapter.DaRenFansAdapter;
 import com.xiaoyu.liangcangprogram.daren.adapter.DarenLikeAdapter;
@@ -114,6 +116,7 @@ public class DaRenShowDetialsActivity extends AppCompatActivity {
                 break;
             case R.id.like:
                 url = NetUrl.LIKE_DAREN_HEAD + uid + NetUrl.LIKE_DAREN_FOOT;
+                Log.e("TAG", "111111111111111111111" + url);
                 GetDataFromNetForDetials(url);
                 break;
             case R.id.tuijain:
@@ -146,13 +149,26 @@ public class DaRenShowDetialsActivity extends AppCompatActivity {
 
     private void parseDataDetialsFans(String json) {
         final FansBean fansBean = JSON.parseObject(json, FansBean.class);
-        user = fansBean.getData().getItems().getUsers();
-        if (user.size() > 0) {
-            fansadapter = new DaRenFansAdapter(this, user);
-            darenDetialsRecycler.setAdapter(fansadapter);
-            GridLayoutManager manager = new GridLayoutManager(this, 3);
-            darenDetialsRecycler.setLayoutManager(manager);
+
+        if (!fansBean.getData().getItems().getUsers().isEmpty()) {
+            user = fansBean.getData().getItems().getUsers();
+            if (user != null) {
+                fansadapter = new DaRenFansAdapter(this, user);
+                darenDetialsRecycler.setAdapter(fansadapter);
+                GridLayoutManager manager = new GridLayoutManager(this, 3);
+                darenDetialsRecycler.setLayoutManager(manager);
+            }
         }
+
+        fansadapter.setOnItemClickListener(new DaRenFansAdapter.OnItemClickListener() {
+            @Override
+            public void getPosition(int position) {
+                String uid = user.get(position).getUser_id();
+                Intent intent = new Intent(DaRenShowDetialsActivity.this, DaRenShowDetialsOtherActivity.class);
+                intent.putExtra("uid", uid);
+                startActivity(intent);
+            }
+        });
     }
 
     private void GetDataFromNetForDetials(String url) {
@@ -173,7 +189,7 @@ public class DaRenShowDetialsActivity extends AppCompatActivity {
     private void parseDataDetials(String json) {
         LikesBean likesBean = JSON.parseObject(json, LikesBean.class);
         goods = likesBean.getData().getItems().getGoods();
-        if (goods.size() > 0) {
+        if (goods != null) {
             adapter = new DarenLikeAdapter(this, goods);
             darenDetialsRecycler.setAdapter(adapter);
             GridLayoutManager manager = new GridLayoutManager(this, 2);

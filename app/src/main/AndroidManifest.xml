@@ -22,7 +22,13 @@
         <activity android:name=".shopping.activity.PinPaiDetialShowActivity" />
         <activity android:name=".shopping.activity.WebShowInfoActivity" />
         <activity android:name=".daren.DaRenShowDetialsActivity" />
-        <activity android:name=".daren.activity.ShowGoodsInfoActivity"></activity>
+        <activity android:name=".daren.activity.DaRenShowDetialsOtherActivity" />
+        <activity android:name=".daren.activity.ShowGoodsInfoActivity" />
+        <activity android:name=".daren.activity.ShowGoodsInfotwoActivity" />
+        <activity
+            android:name=".magazine.activity.showTopActivity"
+            android:theme="@style/Theme.Swipe.Back" />
+        <activity android:name=".shoppingcart.ShoppingCartForGoods"></activity>
     </application>
 
 </manifest>

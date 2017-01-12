@@ -95,7 +95,6 @@ public class ShowGoodsInfoActivity extends AppCompatActivity {
             }).start();
 //             设置样式
             GoodsPic.setBannerAnimation(AccordionTransformer.class);
-            Log.e("TAG", "----------"+goodsBean.getData().getItems().getGoods_name());
             GoodsInfoName.setText(goodsBean.getData().getItems().getGoods_name());
             goodsPrice.setText(goodsBean.getData().getItems().getPrice());
             likeCount.setText(goodsBean.getData().getItems().getLike_count());

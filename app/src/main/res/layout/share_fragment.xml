@@ -39,10 +39,170 @@
 
     </LinearLayout>
 
-
-    <android.support.v7.widget.RecyclerView
-        android:background="#000000"
-        android:id="@+id/share_recycler"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/share_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/all_share"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="全部分享"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/shop_share"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="商店分享"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/shoe_other"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="分类分享"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layout_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/layout"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/men"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="男士"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/women"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="女士"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/jiaju"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="家居"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/shuma"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="数码"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tools"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="工具"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/wanju"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="玩具"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/meirong"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="美容"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/child"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="孩子"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/chongwu"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="宠物"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/sport"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="运动"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/meishi"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="美食"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/wenhua"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="文化"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
 </LinearLayout>

@@ -46,16 +46,18 @@ public class NetUrl {
     public static final String TUIJAN_DAREN_FOOT = "&page=1&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0";
     //    喜欢
     public static final String LIKE_DAREN_HEAD = "http://mobile.iliangcang.com/user/masterLike?app_key=Android&count=12&owner_id=";
-    public static final String LIKE_DAREN_FOOT = "&owner_id=137&page=1&sig=BF287AF953103F390674E73DDA18CFD8|639843030233268&v=1.0";
+    public static final String LIKE_DAREN_FOOT = "&page=1&sig=BF287AF953103F390674E73DDA18CFD8|639843030233268&v=1.0";
     //    关注
     public static final String GUANZHU_DAREN_HEAD = "http://mobile.iliangcang.com/user/masterFollow?app_key=Android&count=12&owner_id=";
-    public static final String GUAZHU_DAREN_FOOT = "&owner_id=137&page=1&sig=BF287AF953103F390674E73DDA18CFD8|639843030233268&v=1.0";
+    public static final String GUAZHU_DAREN_FOOT = "&page=1&sig=BF287AF953103F390674E73DDA18CFD8|639843030233268&v=1.0";
 //    货物详情
     /**
      * http://mobile.iliangcang.com/goods/goodsDetail?app_key=Android&goods_id=102939&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0
      */
     public static final String GOODS_HEAD = "http://mobile.iliangcang.com/goods/goodsDetail?app_key=Android&goods_id=";
     public static final String GOODS_FOOT = "&sig=BF287AF953103F390674E73DDA18CFD8%7C639843030233268&v=1.0";
-
-
+    /**
+     * http://mobile.iliangcang.com/topic/magazineList?app_key=Android&sig=3E75F2A66A266F2CCE4FE69B60EE0BD6%7C219146020650568&v=1.0
+     */
+    public static final String MAGAZINE = "http://mobile.iliangcang.com/topic/magazineList?app_key=Android&sig=3E75F2A66A266F2CCE4FE69B60EE0BD6%7C219146020650568&v=1.0";
 }

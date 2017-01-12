@@ -1,7 +1,6 @@
 package com.xiaoyu.liangcangprogram.shopping.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +8,7 @@ import android.view.View;
 
 import com.alibaba.fastjson.JSON;
 import com.xiaoyu.liangcangprogram.ConstantUtils.NetUrl;
+import com.xiaoyu.liangcangprogram.MainActivity;
 import com.xiaoyu.liangcangprogram.R;
 import com.xiaoyu.liangcangprogram.base.BaseFragment;
 import com.xiaoyu.liangcangprogram.okHttpUtils.GetNetData;
@@ -16,7 +16,6 @@ import com.xiaoyu.liangcangprogram.okHttpUtils.OnGetDataListener;
 import com.xiaoyu.liangcangprogram.shopping.adapter.ShopFenLeiAdapter;
 import com.xiaoyu.liangcangprogram.shopping.bean.DetialsBean;
 import com.xiaoyu.liangcangprogram.shopping.bean.FenLeiBean;
-import com.xiaoyu.liangcangprogram.shopping.detials.ShowDetialsFragment;
 
 import java.util.List;
 
@@ -77,15 +76,16 @@ public class FenLeiFragment extends BaseFragment {
                 @Override
                 public void getPosition(int position) {
                     String url = datas.get(position).getCat_id();
-                    ShowDetialsFragment showDetialsFragment = new ShowDetialsFragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.add(R.id.main_framelayout, showDetialsFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
                     Bundle bundle = new Bundle();
+                    MainActivity mainActivity = (MainActivity) mContext;
+                    mainActivity.getFragmet(5).setArguments(bundle);
+                    int currentFragment = mainActivity.getCurrentFragment();
+                    mainActivity.SwitchFragment(mainActivity.getFragmet(5));
                     bundle.putString("url", url);
                     bundle.putInt("position", position);
-                    showDetialsFragment.setArguments(bundle);
+                    bundle.putInt("current", currentFragment);
+
+
                 }
             });
 

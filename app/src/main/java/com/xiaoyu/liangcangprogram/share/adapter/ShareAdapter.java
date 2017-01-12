@@ -57,10 +57,28 @@ public class ShareAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.getPosition(getAdapterPosition());
+                    }
+                }
+            });
         }
 
         public void setData(ShareBean.DataBean.ItemsBean itemsBean) {
             Glide.with(mContext).load(itemsBean.getGoods_image()).into(shareImage);
         }
+    }
+
+    public interface OnItemClickListener {
+        void getPosition(int position);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }
