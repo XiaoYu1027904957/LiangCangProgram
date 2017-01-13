@@ -126,17 +126,19 @@ public class ShowDetialsFragment extends BaseFragment {
                 MainActivity activity = (MainActivity) mContext;
                 activity.SwitchFragment(activity.getFragmet(currentfragment));
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.fragmeng_left_in, R.anim.fragment_right_out);
+                transaction.setCustomAnimations(R.anim.fragmeng_left_in, R.anim.fragment_right_out, R.anim.fragment_right_in, R.anim.fragment_left_out);
                 transaction.replace(R.id.main_framelayout, activity.getFragmet(currentfragment));
                 transaction.commit();
             }
         });
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.reset(this);
     }
+
     @OnClick(R.id.detials_shopcard)
     public void onClick() {
         Intent intent = new Intent(mContext, ShoppingCartForGoods.class);

@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".WelcomeActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,8 @@
         <activity
             android:name=".magazine.activity.showTopActivity"
             android:theme="@style/Theme.Swipe.Back" />
-        <activity android:name=".shoppingcart.ShoppingCartForGoods"></activity>
+        <activity android:name=".shoppingcart.ShoppingCartForGoods" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

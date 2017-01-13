@@ -145,6 +145,8 @@ public class MagazineFragment extends BaseFragment implements View.OnClickListen
         }
     }
 
+
+
     private void showViewOfGridView() {
         if (items != null && items.size() > 0) {
             mianSearch.setText(items.get(0));

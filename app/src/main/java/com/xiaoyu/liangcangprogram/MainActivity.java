@@ -43,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
      * 正在显示的fragment
      */
     private Fragment temfragment;
+    private Fragment lastfragment;
     private int position;
     private Fragment currentfragment;
     int currentfragmentposition;
-    private FragmentTransaction transaction;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         setOnCheckedListener();
 //        getCurrentFragment();
     }
-
 
     /**
      * 对Radio设置监听
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 //                得到当前需要显示的fragment
+
                 currentfragment = getFragmet(position);
                 SwitchFragment(currentfragment);
             }
@@ -94,22 +95,26 @@ public class MainActivity extends AppCompatActivity {
     public void SwitchFragment(Fragment currentfragment) {
         if (temfragment != currentfragment) {
             if (currentfragment != null) {
-                transaction = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                if (currentfragment == fragments.get(5)) {
+                    transaction.setCustomAnimations(R.anim.right_in, R.anim.left_out);
+                } else if (temfragment == fragments.get(5)) {
+                    transaction.setCustomAnimations(R.anim.left_in, R.anim.right_out);
+                }
                 if (!currentfragment.isAdded()) {
                     if (temfragment != null) {
                         transaction.hide(temfragment);
                     }
-                   transaction.setCustomAnimations(R.anim.fragment_right_in, R.anim.fragment_left_out);
                     transaction.add(R.id.main_framelayout, currentfragment);
                 } else {
                     if (temfragment != null) {
                         transaction.hide(temfragment);
                     }
 
-                    transaction.setCustomAnimations(R.anim.fragment_right_in, R.anim.fragment_left_out);
                     transaction.show(currentfragment);
                 }
                 transaction.commit();
+                lastfragment = temfragment;
                 temfragment = currentfragment;
             }
         }
@@ -164,6 +169,22 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
+
+//    /**
+//     * 隐藏商品详情页面，显示上一个页面
+//     */
+//    public void hideShopGoods() {
+//
+//        SwitchFragment(lastfragment);
+//    }
+//
+//    /**
+//     * 显示商品详情页面
+//     */
+//    public void showShopGoods() {
+//        SwitchFragment(fragments.get(5));
+////        getGoodsInfoFromNet();
+//    }
 
 
 }

@@ -18,6 +18,7 @@ public class NewDetilasBean {
     private int version;
     private DataBean data;
 
+
     public MetaBean getMeta() {
         return meta;
     }
@@ -41,6 +42,9 @@ public class NewDetilasBean {
     public void setData(DataBean data) {
         this.data = data;
     }
+
+
+
 
     public static class MetaBean {
         /**
@@ -177,6 +181,47 @@ public class NewDetilasBean {
             private String coupon_flag;
             private String promotion_imgurl;
             private BrandInfoBean brand_info;
+
+            /**
+             * 购物车中商品的数量
+             */
+            private int count = 1;
+
+            /**
+             * 是否被选中
+             *
+             * @return
+             */
+            private boolean isChecked = false;
+
+            /**
+             * 设置被选中商品的属性
+             */
+            private String shuXing = "";
+
+            public String getShuXing() {
+                return shuXing;
+            }
+
+            public void setShuXing(String shuXing) {
+                this.shuXing = shuXing;
+            }
+
+            public boolean isChecked() {
+                return isChecked;
+            }
+
+            public void setChecked(boolean checked) {
+                isChecked = checked;
+            }
+
+            public int getCount() {
+                return count;
+            }
+
+            public void setCount(int count) {
+                this.count = count;
+            }
 
             public String getGoods_id() {
                 return goods_id;

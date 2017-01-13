@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.xiaoyu.liangcangprogram.ConstantUtils.NetUrl;
 import com.xiaoyu.liangcangprogram.R;
 import com.xiaoyu.liangcangprogram.daren.bean.GoodsDetialsBean;
+import com.xiaoyu.liangcangprogram.data.CartData;
 import com.xiaoyu.liangcangprogram.okHttpUtils.GetNetData;
 import com.xiaoyu.liangcangprogram.okHttpUtils.OnGetDataListener;
 import com.xiaoyu.liangcangprogram.view.AddSubView;
@@ -65,6 +67,8 @@ public class ShowGoodsInfotwoActivity extends AppCompatActivity {
     private ArrayList<String> imageurl;
     private ArrayList<String> arrayList;
     private GoodsDetialsBean goodsBean;
+    //      缓存数据
+    private GoodsDetialsBean tmpeGoodsBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +143,10 @@ public class ShowGoodsInfotwoActivity extends AppCompatActivity {
                 break;
             case R.id.buy:
                 Toast.makeText(ShowGoodsInfotwoActivity.this, "我要直接买我有钱任性", Toast.LENGTH_SHORT).show();
-                showPopPupWindow();
+                Log.e("TAG", "--------------->" + goodsBean);
+                Log.e("TAG", "----------------><-----" + goodsBean.getData().getItems().getCount());
+                CartData.getInstance().addGoods(goodsBean,
+                        goodsBean.getData().getItems().getCount());
                 break;
         }
     }
@@ -149,7 +156,16 @@ public class ShowGoodsInfotwoActivity extends AppCompatActivity {
      */
     private void showPopPupWindow() {
 
-
+//        tmpeGoodsBean = CartStorage.getIntance(this).findData(goodsBean.getData().getItems().getGoods_id());
+//        //         查找是否存在
+//        boolean isExist;
+//        if (tmpeGoodsBean == null) {
+////            之前在购物车里没有
+//            isExist = false;
+//            tmpeGoodsBean = goodsBean.getData().getItems();
+//        } else {
+//            isExist = true;
+//        }
 //           1、 利用layoutInflate获得view
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.popwindow_show_gouwuche, null);
@@ -181,6 +197,7 @@ public class ShowGoodsInfotwoActivity extends AppCompatActivity {
         gouwuceh_goods_price.setText(goodsBean.getData().getItems().getPrice());
 
 //       设置最大值和最小指
+        nasGoodinfoNum.tvValue.setText(goodsBean.getData().getItems().getCount() + "");
         nasGoodinfoNum.setMinValue(1);
         nasGoodinfoNum.setMaxValue(20);
 
@@ -189,7 +206,7 @@ public class ShowGoodsInfotwoActivity extends AppCompatActivity {
             @Override
             public void numberChange(int value) {
 
-
+                goodsBean.getData().getItems().setCount(value);
             }
         });
 //
@@ -199,19 +216,22 @@ public class ShowGoodsInfotwoActivity extends AppCompatActivity {
 //          设置监听(自己写接口)
 //
 //        设置取消按钮的点击事件
-        goods_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                window.dismiss();
-
-
-            }
-        });
+//        goods_delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                tmpeGoodsBean.setNumber(goodsBean.getData().getItems().getNumber());
+//                window.dismiss();
+//
+//            }
+//        });
 //         设置确认按钮的监听
         make_sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(ShowGoodsInfotwoActivity.this, "00000000000000000000000", Toast.LENGTH_SHORT).show();
                 window.dismiss();
+                CartData.getInstance().addGoods(goodsBean,
+                        goodsBean.getData().getItems().getCount());
             }
         });
 //        设置window消失的监听

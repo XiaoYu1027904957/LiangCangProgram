@@ -196,6 +196,48 @@ public class GoodsDetialsBean {
             private List<?> sku_inv;
             private List<?> goods_info;
 
+
+            /**
+             * 购物车中商品的数量
+             */
+            private int count = 1;
+
+            /**
+             * 是否被选中
+             *
+             * @return
+             */
+            private boolean isChecked = false;
+
+            /**
+             * 设置被选中商品的属性
+             */
+            private String shuXing = "";
+
+            public String getShuXing() {
+                return shuXing;
+            }
+
+            public void setShuXing(String shuXing) {
+                this.shuXing = shuXing;
+            }
+
+            public boolean isChecked() {
+                return isChecked;
+            }
+
+            public void setChecked(boolean checked) {
+                isChecked = checked;
+            }
+
+            public int getCount() {
+                return count;
+            }
+
+            public void setCount(int count) {
+                this.count = count;
+            }
+
             public String getGoods_id() {
                 return goods_id;
             }

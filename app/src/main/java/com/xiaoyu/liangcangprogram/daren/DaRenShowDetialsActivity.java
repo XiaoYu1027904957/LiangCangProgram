@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -116,7 +115,6 @@ public class DaRenShowDetialsActivity extends AppCompatActivity {
                 break;
             case R.id.like:
                 url = NetUrl.LIKE_DAREN_HEAD + uid + NetUrl.LIKE_DAREN_FOOT;
-                Log.e("TAG", "111111111111111111111" + url);
                 GetDataFromNetForDetials(url);
                 break;
             case R.id.tuijain:
